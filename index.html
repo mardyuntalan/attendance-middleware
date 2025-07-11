@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Attendance Gateway</title>
+  <script>
+    function validateAccess() {
+      const passcode = document.getElementById('passcode').value;
+      const currentTime = new Date();
+      const currentHour = currentTime.getHours();
+
+      // Example: Allow only from 7AM to 9AM
+      if (passcode === 'PCSA2025' && currentHour >= 7 && currentHour <= 9) {
+        // Redirect to Google Form with pre-filled data
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdPMyv5mUsZkVgfvU_ySPT_H2W1nhXJt5ICynV0pr9SAvNWdA/viewform?usp=pp_url&entry.1039283856=EMP001&entry.1461535691=Juan+Dela+Cruz&entry.1698869421=HRMO";
+      } else {
+        alert("Unauthorized access. Please check the passcode or event schedule.");
+      }
+    }
+  </script>
+</head>
+<body style="font-family:sans-serif; text-align:center; margin-top:80px;">
+  <h2>🔒 Secure QR Attendance Checkpoint</h2>
+  <p>Please enter the event passcode to proceed:</p>
+  <input type="password" id="passcode" placeholder="Enter event code" />
+  <br/><br/>
+  <button onclick="validateAccess()">Submit</button>
+</body>
+</html>
